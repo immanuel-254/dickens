@@ -1,0 +1,39 @@
+Dickens 
+
+-dependencies
+
+--database (completed - 5th December 2024)
+---Vanilla sql
+---goose -> tool/golang
+---libsql -> golang
+---sqlc -> tool
+---turso -> tool
+
+--server (completed - 14th December 2024)
+---net/http -> golang
+---gorilla/csrf -> golang
+
+--auth (completed - 9th December 2024)
+---bcrypt ->golang
+---jwt -> golang
+
+--model -> ziglang (completed - 20th December 2024)
+
+--client (completed - 15th December 2024)
+---net/http -> golang
+
+-web
+--tailwindcss -> css
+--template/html -> golang
+--Vanilla JS
+--lustre -> gleam
+
+-build
+--server.exe
+--env.json
+--app.wasm
+--client.wasm
+--wasm_exec.js
+--script.js
+--style.css
+--index.html
