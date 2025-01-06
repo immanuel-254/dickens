@@ -3,6 +3,7 @@ module dickens
 go 1.23.3
 
 require (
+	github.com/a-h/templ v0.3.819
 	github.com/golang-jwt/jwt/v5 v5.2.1
 	github.com/pressly/goose/v3 v3.23.0
 	github.com/tursodatabase/libsql-client-go v0.0.0-20240902231107-85af5b9d094d
@@ -16,5 +17,5 @@ require (
 	github.com/sethvargo/go-retry v0.3.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	golang.org/x/exp v0.0.0-20240325151524-a685a6edb6d8 // indirect
-	golang.org/x/sync v0.9.0 // indirect
+	golang.org/x/sync v0.10.0 // indirect
 )

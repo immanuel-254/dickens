@@ -1,16 +1,76 @@
 package templates
 
-templ Index(title string) {
-<!DOCTYPE html>
+templ Index() {
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title}</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <link rel="stylesheet" href="/style.css">
-</head>
-<body>
-    <h1 class="text-3xl font-bold underline">Hello, World!</h1>
-</body>
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+  </head>
+  <body>
+      <nav class="border-b border-black bg-white">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center justify-between">
+              <!-- Left Section: Text Input -->
+              <div class="flex items-center">
+                <input type="text" placeholder="Title" class="rounded-md border border-gray-300 px-4 py-2 text-sm focus:border-transparent focus:outline-none focus:ring-1 focus:ring-black" />
+              </div>
+              <!-- Right Section: Save Button -->
+              <!-- Right Section: Save Button and Dropdown -->
+              <div class="flex items-center space-x-4">
+                <!-- Save Button -->
+                <button class="rounded-md bg-black px-4 py-2 text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500">Save</button>
+
+                <!-- Dropdown -->
+                <div class="group relative">
+                  <button class="rounded-md bg-black px-4 py-2 text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500">Settings</button>
+                  <!-- Dropdown Menu -->
+                  <div class="invisible absolute right-0 mt-2 w-48 rounded-md border border-gray-200 bg-white opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Option 1</a>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Option 2</a>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Option 3</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      
+    <div class="grid grid-cols-2">
+        <textarea id="raw" class="h-screen border-e border-black p-1"></textarea>
+        <div class="grid grid-rows-12 h-screen">
+          <!--<div id="toolbar" class="border-b border-black"></div>-->
+          <div id="editor" class="row-span-11"></div>
+        </div>
+      </div>
+  </body>
+
+  <!-- Include the Quill library -->
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+
+<!-- Initialize Quill editor -->
+<script>
+  const quill = new Quill('#editor', {
+      theme: 'snow'
+    });
+
+    const raw = document.getElementById("raw");
+
+    // Update the textarea when Quill content changes
+    quill.on('text-change', function() {
+      raw.value = quill.root.innerHTML;
+    });
+
+    // Update the Quill editor when the textarea content changes
+    raw.addEventListener('input', function() {
+      quill.root.innerHTML = raw.value;
+    });
+</script>
+
+ <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </html>
+
 }
